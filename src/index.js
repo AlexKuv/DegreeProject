@@ -10,6 +10,7 @@ import present from './modules/present';
 import slider from './modules/carouselPhoto';
 import getPromocode from './modules/getPromocode';
 import carousel from './modules/carousel';
+import scrollTop from './modules/scrollTop';
 
 chooseClub();
 freeVisit();
@@ -24,3 +25,4 @@ getPromocode();
 
 carousel();
 slider();
+scrollTop();

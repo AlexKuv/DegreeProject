@@ -8,9 +8,9 @@ const getPromocode = function getPromocode() {
       cardLetoMozaika = document.getElementById('card_leto_mozaika'),
       cardLetoSchelkovo = document.getElementById('card_leto_schelkovo'),
       club = document.getElementById('card_order');
-      console.log(inputPromo);
-  const telo = 'ТЕЛО2020';
-  club.addEventListener('click', function () {
+  const telo = 'ТЕЛО2019';
+ 
+  club.addEventListener('change', function () {
     if (cardLetoMozaika.checked && inputPromo.value !== telo) {
       if (oneMonth.checked) {
         priceTotal.innerHTML = 1999;
