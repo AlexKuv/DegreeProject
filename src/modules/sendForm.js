@@ -1,7 +1,9 @@
 const sendForm = () => {
  const formAll = document.querySelectorAll('form');
+const thanks = document.getElementById('thanks');
 
- let a = document.querySelectorAll('[name="phone"]');
+
+
 
 
  const statusMessage = document.createElement('div');
@@ -12,11 +14,12 @@ const sendForm = () => {
  `;
 
  formAll.forEach(item => {
+   const popup = document.querySelectorAll('.popup');
+
     item.addEventListener('submit', (event) => {
       event.preventDefault();
-      item.appendChild(statusMessage);
+         item.appendChild(statusMessage);
       statusMessage.textContent = 'Идет отправка';
-
       const formData = new FormData(item);
       let body = {};
       formData.forEach((val, key) => {
@@ -32,6 +35,8 @@ const sendForm = () => {
     })
       .then((response) => {
         if(response.status === 200) {
+          popup.forEach(item=>item.style.display='none');
+          thanks.style.display = 'block';
           statusMessage.textContent = 'Отправлено';
           item.querySelectorAll('input').forEach(i => i.value = '');
         } else {
