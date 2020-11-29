@@ -16,7 +16,9 @@ callBackModal();
 maskPhone('[name=phone]');
 sendForm();
 mainSlider();
-present();
+if(document.location.pathname === '/index.html'){
+    present();
+}
 
 const carousel = new sliderCarousel({
     main: '#services>.wrapper' ,

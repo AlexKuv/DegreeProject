@@ -119,10 +119,10 @@ addArrow();
 //   const dotAdd = () => {
 //     let dotUl = document.createElement('ul'),
 //     dotLi = document.createElement('li');
-//     dotUl.className = 'gallery-slider';
+//     dotUl.className = 'gallery-dots';
+//     console.log('dotUl: ', dotUl);
 //     wrapper.append(dotUl);
 //     dotLi.className = 'dot';
-//     console.log('dotLi: ', dotLi);
 
 //     for (let i = 0; i<slide.length; i++){
 //       dotUl.appendChild(dotLi.cloneNode());
@@ -134,7 +134,6 @@ addArrow();
 
 
   const prevSlide = (elem, index, strClass) => {
-    elem[index].classList.add('carousel-slider__item-photo');
     elem[index].classList.remove(strClass);
   };
 
@@ -142,9 +141,27 @@ addArrow();
     elem[index].classList.add(strClass);
   };
 
-  
+  const autoPlaySlide = () => {
+    let dot = document.querySelectorAll('.dot');
+
+    prevSlide(slide, currentSlide, 'carousel-slider__item-photo-active');
+    currentSlide++;
+    if(currentSlide >= slide.length){
+      currentSlide = 0;
+    }
+    nextSlide(slide, currentSlide, 'carousel-slider__item-photo-active');
+  };
+
+  const startSlide = (time = 3000) => {
+   interval = setInterval(autoPlaySlide, time);
+  };
+
+  const stopSlide = () => {
+    clearInterval(interval);
+  };
+startSlide();
+
 section.addEventListener('click', (event) => {
-  console.log('event: ', event.target);
   event.preventDefault();
   let target = event.target;
   let next = document.querySelector('.carousel-slider_next');

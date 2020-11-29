@@ -3,9 +3,6 @@ const sendForm = () => {
 const thanks = document.getElementById('thanks');
 
 
-
-
-
  const statusMessage = document.createElement('div');
  statusMessage.style.cssText = `
  font-size: 2 rem;
@@ -13,12 +10,14 @@ const thanks = document.getElementById('thanks');
  margin-top: 10px;
  `;
 
+
  formAll.forEach(item => {
    const popup = document.querySelectorAll('.popup');
 
     item.addEventListener('submit', (event) => {
       event.preventDefault();
-         item.appendChild(statusMessage);
+
+      item.appendChild(statusMessage);
       statusMessage.textContent = 'Идет отправка';
       const formData = new FormData(item);
       let body = {};
@@ -35,6 +34,7 @@ const thanks = document.getElementById('thanks');
     })
       .then((response) => {
         if(response.status === 200) {
+          
           popup.forEach(item=>item.style.display='none');
           thanks.style.display = 'block';
           statusMessage.textContent = 'Отправлено';
@@ -48,6 +48,7 @@ const thanks = document.getElementById('thanks');
       .catch((error) => {
           console.error(error);
       });
+
 
     setTimeout(() => {
       statusMessage.textContent = '';
