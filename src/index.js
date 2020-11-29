@@ -11,6 +11,8 @@ import slider from './modules/carouselPhoto';
 import getPromocode from './modules/getPromocode';
 import carousel from './modules/carousel';
 import scrollTop from './modules/scrollTop';
+import showBurger from './modules/showBurger';
+import fixedMenu from './modules/fixedMenu';
 
 chooseClub();
 freeVisit();
@@ -22,7 +24,8 @@ if(document.location.pathname === '/index.html'){
     present();
 }
 getPromocode();
-
 carousel();
 slider();
 scrollTop();
+showBurger();
+fixedMenu();
