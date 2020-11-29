@@ -13,6 +13,7 @@ import carousel from './modules/carousel';
 import scrollTop from './modules/scrollTop';
 import showBurger from './modules/showBurger';
 import fixedMenu from './modules/fixedMenu';
+import popupMenu from './modules/popupMenu';
 
 chooseClub();
 freeVisit();
@@ -29,3 +30,4 @@ slider();
 scrollTop();
 showBurger();
 fixedMenu();
+popupMenu();
