@@ -6,6 +6,7 @@ const modalWindows = () => {
       formContentCallback = document.querySelector('.form-content-callback'),
       formContentGift = document.querySelector('.form-content-gift'),
       formContentVisit = document.querySelector('.form-content-visit');
+      let giftImg = document.querySelector('.fixed-gift');
   document.addEventListener("click", function (event) {
     let target = event.target;
 
@@ -39,23 +40,15 @@ const modalWindows = () => {
     }
 
     if (target.closest(".fixed-gift")) {
+      
+      giftImg.style.display = "none";
       gift.style.display = "block";
-      formContentGift.style.opacity = "0";
-      let _x2 = 0;
-
-      let _timer2 = setInterval(function () {
-        _x2 += 0.1;
-        formContentGift.style.opacity = "".concat(_x2);
-
-        if (formContentGift.style.opacity === "1.1") {
-          clearInterval(_timer2);
-        }
-      }, 20);
     }
 
     if (target.closest("#gift > .overlay, #gift > .form-wrapper > .close-form .close_icon, #gift > .form-wrapper > .form-content > .close-btn")) {
       gift.style.display = "none";
-      document.querySelector(".fixed-gift").remove();
+      giftImg.style.display = "block";
+     // document.querySelector(".fixed-gift").remove();
     }
 
     if (target.closest(".overlay, .close_icon,  #thanks > .form-wrapper > .form-content > .close-btn")) {
