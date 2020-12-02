@@ -47,8 +47,7 @@ const modalWindows = () => {
 
     if (target.closest("#gift > .overlay, #gift > .form-wrapper > .close-form .close_icon, #gift > .form-wrapper > .form-content > .close-btn")) {
       gift.style.display = "none";
-      giftImg.style.display = "block";
-     // document.querySelector(".fixed-gift").remove();
+      document.querySelector(".fixed-gift").remove();
     }
 
     if (target.closest(".overlay, .close_icon,  #thanks > .form-wrapper > .form-content > .close-btn")) {

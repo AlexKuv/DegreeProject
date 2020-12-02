@@ -2,6 +2,7 @@ const sendForm = () => {
  const formAll = document.querySelectorAll('form');
 const thanks = document.getElementById('thanks');
 
+const cardOrder = document.getElementById('card_order');
 
  const statusMessage = document.createElement('div');
  statusMessage.style.cssText = `
@@ -13,6 +14,7 @@ const thanks = document.getElementById('thanks');
 
  formAll.forEach(item => {
    const popup = document.querySelectorAll('.popup');
+  let a = document.getElementById('price-total');
 
     item.addEventListener('submit', (event) => {
       event.preventDefault();
@@ -22,7 +24,14 @@ const thanks = document.getElementById('thanks');
       const formData = new FormData(item);
       let body = {};
       formData.forEach((val, key) => {
+
+        if (event.path[0] === cardOrder) {
+          body[key] = val;
+        body['Price-total'] = a.textContent;
+        } else {
         body[key] = val;
+        }
+
       });
 
     fetch('./server.php', {
@@ -34,7 +43,7 @@ const thanks = document.getElementById('thanks');
     })
       .then((response) => {
         if(response.status === 200) {
-          
+          console.log(body);
           popup.forEach(item=>item.style.display='none');
           thanks.style.display = 'block';
           statusMessage.textContent = 'Отправлено';
